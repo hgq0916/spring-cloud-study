@@ -7,7 +7,6 @@ spring:
 eureka:
   instance:
     hostname: peer1
-    appname:
   client:
     service-url:
       defaultZone: http://peer2:8082/eureka/,http://peer3:8083/eureka/
