@@ -28,6 +28,8 @@ Eureka所有操作调用，全部是基于Restful协议
 
 spring.application.name和eureka.instance.appname的作用是一样的
 
+appName会覆盖application.name,同一集群下name必须一致
+
 #### unavailable-replicas出现的原因
 
 集群节点的application.name可能不一样，如果application.name相同则说明几个节点是同一组的
@@ -48,13 +50,17 @@ serviceId:IP+applicationName+端口
 
 ####　Eureka客户端注册和获取服务列表
 
-官方文档：github.com/Netflix/wiki/Eureka-REST-operations
+官方文档：https://github.com/Netflix/eureka/wiki/Eureka-REST-operations
 
 ![image-20200818112506810](03 Eureka 注册中心 高可用 远程服务调用.assets/image-20200818112506810.png)
 
+Query for all **appID**instances ：http://localhost:8080/eureka/apps 
+
+Query for all **appID**instances：http://localhost:8080/eureka/apps/EUREKA-SERVER
+
 ##### Eureka元数据
 
-localhost:7001/eureka/status
+localhost:7001/eureka/status 查询服务状态信息
 
 Eureka客户端和服务端都可以自定义元数据
 
@@ -74,7 +80,7 @@ status：up表示上线状态
 
 getInstanceId("localhost:provider:80");
 
-getTanstanceByVipAddress("provider",false)；
+getInanstanceByVipAddress("provider",false)；
 
 作业：
 

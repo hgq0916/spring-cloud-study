@@ -5,8 +5,9 @@
   <modelVersion>4.0.0</modelVersion>
   <modules>
     <module>eureka-server</module>
-    <module>eureka-server-colony</module>
     <module>multi-eureka-server</module>
+    <module>Eureka-Provider</module>
+    <module>Eureka-Consumer</module>
   </modules>
 
   <parent>

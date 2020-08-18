@@ -8,7 +8,11 @@ spring:
 eureka:
   client:
     #eureka server不需要向自己注册，也不需要获取注册信息
-    register-with-eureka: false
-    fetch-registry: false
+    #register-with-eureka: false
+    #fetch-registry: false
     service-url:
       defaultZone: http://localhost:8080/eureka/
+  instance:
+    hostname: localhost
+    metadata-map:
+      dalao: mashibing

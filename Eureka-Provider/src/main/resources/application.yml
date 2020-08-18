@@ -1,0 +1,13 @@
+server:
+  port: 8101
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8080/eureka/
+  instance:
+    metadata-map:
+      username: zhangsan
+      age: 80
+spring:
+  application:
+    name: Eureka-provider
