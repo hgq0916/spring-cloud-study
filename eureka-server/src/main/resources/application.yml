@@ -16,3 +16,6 @@ eureka:
     hostname: localhost
     metadata-map:
       dalao: mashibing
+  #关闭自我保护
+  server:
+    enable-self-preservation: false

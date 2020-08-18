@@ -20,13 +20,17 @@
 
 ##### 开启所有的端点：
 
-*表示所有
+*表示所有，配置文件中添加如下：
 
 ![image-20200818173135485](04 Ribbon 客户端的负载均衡 服务手动上下线.assets/image-20200818173135485.png)
 
 ##### 远程停止微服务
 
 management.endpoint.shutdown.enabled=true//开启可以远程关闭微服务节点
+
+在actuator返回的结果中：新增了shutdown的地址信息
+
+http://hgq-pc:8101/actuator/shutdown
 
 ##### 查询jvm内存
 
@@ -40,7 +44,7 @@ management.endpoint.shutdown.enabled=true//开启可以远程关闭微服务节�
 
 ##### 测试服务的上下线
 
-手动把服务down掉，不会立即上传，只能通过心跳上报down或者up的状态，但eureka不会剔除它，eureka只会把up的服务下发给客户端
+手动把服务down掉，不会立即上传，只能通过心跳上报down或者up的状态，但eureka不会剔除它，这个服务就不会被eureka下发到客户端，eureka只会把up的服务下发给客户端
 
 只要发心跳包，不管是up或者down，但不会被eureka剔除，只是修改节点的状态
 

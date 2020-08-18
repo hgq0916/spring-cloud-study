@@ -2,6 +2,9 @@ server:
   port: 8101
 eureka:
   client:
+    #开启actuator上报真实的健康状态
+    healthcheck:
+      enabled: true
     service-url:
       defaultZone: http://localhost:8080/eureka/
   instance:
@@ -11,3 +14,13 @@ eureka:
 spring:
   application:
     name: Eureka-provider
+
+#actuator输出所有的端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    shutdown:
+      enabled: true
