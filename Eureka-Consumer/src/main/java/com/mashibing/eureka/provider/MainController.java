@@ -73,9 +73,11 @@ public class MainController {
   @GetMapping("/client6")
   public Object client6(){
     ServiceInstance serviceInstance = loadBalancerClient.choose("EUREKA-PROVIDER");
+    String instanceId = serviceInstance.getInstanceId();
+    System.out.println("instanceId:"+instanceId);
     String url = "http://"+serviceInstance.getHost()+":"+serviceInstance.getPort()+"/hi";
     RestTemplate restTemplate = new RestTemplate();
-    return restTemplate.getForObject(url,String.class);
+    return restTemplate.getForObject(url,String.class)+" instanceId:"+instanceId;
   }
 
   @GetMapping("/client7")

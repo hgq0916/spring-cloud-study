@@ -1,0 +1,6 @@
+server:
+  port: 8101
+
+eureka:
+  instance:
+    instance-id: eurekaProviderHighAvailable-8101

@@ -1,10 +1,9 @@
-server:
-  port: 8202
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8080/eureka/
-  instance:
 spring:
   application:
-    name: Eureka-Consumer
+    name: Eureka-provider
+  profiles:
+    active: peer2

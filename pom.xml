@@ -7,6 +7,7 @@
     <module>eureka-server</module>
     <module>multi-eureka-server</module>
     <module>Eureka-Provider</module>
+    <module>Eureka-Provider-High-Available</module>
     <module>Eureka-Consumer</module>
   </modules>
 
