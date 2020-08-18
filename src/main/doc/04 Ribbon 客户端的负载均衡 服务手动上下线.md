@@ -50,13 +50,26 @@ http://hgq-pc:8101/actuator/shutdown
 
 #####　开启eureka 安全连接
 
-引入spring security依赖包，然后配置用户名密码：
+在eureka中引入spring security依赖包，
+
+```xml
+<dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-web</artifactId>
+    </dependency>
+```
+
+
+
+然后配置用户名密码：
 
 ![image-20200818174845849](04 Ribbon 客户端的负载均衡 服务手动上下线.assets/image-20200818174845849.png)
 
 此时服务提供方无法访问eureka,
 
 需要关闭eureka的csrf攻击，请求链接带上用户名密码
+
+**http://username:password@localhost:8000/eureka/**
 
 ![image-20200818175950529](04 Ribbon 客户端的负载均衡 服务手动上下线.assets/image-20200818175950529.png)
 
