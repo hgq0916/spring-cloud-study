@@ -13,4 +13,9 @@ spring:
 #定义负载均衡策略
 provider:
   ribbon:
-    NFLoadBalancerRuleClassName=com.netflix.loadbalancer.RandomRule
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+#ribbon脱离eureka使用
+#ribbon:
+#  eureka:
+#    enabled: false
+#  listOfServers: peer1:8081,peer2:8082
