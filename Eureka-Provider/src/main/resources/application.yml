@@ -6,7 +6,8 @@ eureka:
     healthcheck:
       enabled: true
     service-url:
-      defaultZone: http://test:123@localhost:8080/eureka/
+      #defaultZone: http://test:123@localhost:8080/eureka/
+      defaultZone: http://localhost:8080/eureka/
   instance:
     metadata-map:
       username: zhangsan

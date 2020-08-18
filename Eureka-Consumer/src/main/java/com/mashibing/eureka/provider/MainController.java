@@ -4,6 +4,8 @@ import com.netflix.appinfo.InstanceInfo;
 import com.netflix.appinfo.InstanceInfo.InstanceStatus;
 import com.netflix.discovery.EurekaClient;
 import java.util.List;
+import java.util.Random;
+import java.util.concurrent.atomic.AtomicInteger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
@@ -23,6 +25,8 @@ public class MainController {
   private LoadBalancerClient loadBalancerClient;//负载均衡客户端
   @Autowired
   private RestTemplate restTemplate;
+
+  private volatile AtomicInteger selectCount = new AtomicInteger();
 
   @GetMapping("/hi")
   public String hi(){
@@ -82,7 +86,33 @@ public class MainController {
 
   @GetMapping("/client7")
   public Object client7(){
-    String url = "http://localhost:8101"+"/hi";
+    String url = "http://EUREKA-PROVIDER"+"/hi";
+    RestTemplate restTemplate = new RestTemplate();
+    return restTemplate.getForObject(url,String.class);
+  }
+
+  @GetMapping("/client8")
+  public Object client8(){
+    String url = "http://EUREKA-PROVIDER"+"/hi";
+    return restTemplate.getForObject(url,String.class);
+  }
+
+  @GetMapping("/client9")
+  public Object client9(){
+    /**
+     * 自定义负载均衡
+     */
+    List<ServiceInstance> instances = discoveryClient.getInstances("EUREKA-PROVIDER");
+
+    //随机
+  /*  int i = new Random().nextInt(instances.size());
+    ServiceInstance serviceInstance = instances.get(i);*/
+  //轮询
+    int i = selectCount.incrementAndGet();
+    ServiceInstance serviceInstance = instances.get(i % instances.size());
+    //权重 给每个实例定义权重
+    //String weight = serviceInstance.getMetadata().get("weight");
+    String url = "http://"+serviceInstance.getHost()+":"+serviceInstance.getPort()+"/hi";
     RestTemplate restTemplate = new RestTemplate();
     return restTemplate.getForObject(url,String.class);
   }

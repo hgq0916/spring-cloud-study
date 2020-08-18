@@ -67,7 +67,27 @@ http://hgq-pc:8101/actuator/shutdown
 
 此时服务提供方无法访问eureka,
 
-需要关闭eureka的csrf攻击，请求链接带上用户名密码
+需要关闭eureka的csrf攻击，
+
+```java
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+
+@Configuration
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
+  @Override
+  protected void configure(HttpSecurity http) throws Exception {
+    http.csrf().disable();
+    super.configure(http);
+  }
+}
+```
+
+
+
+请求链接带上用户名密码
 
 **http://username:password@localhost:8000/eureka/**
 
