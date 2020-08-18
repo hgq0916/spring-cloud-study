@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
+import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
@@ -18,6 +19,10 @@ public class MainController {
   private DiscoveryClient discoveryClient;
   @Autowired
   private EurekaClient eurekaClient;
+  @Autowired
+  private LoadBalancerClient loadBalancerClient;//负载均衡客户端
+  @Autowired
+  private RestTemplate restTemplate;
 
   @GetMapping("/hi")
   public String hi(){
@@ -63,6 +68,21 @@ public class MainController {
       }
     }
     return instances;
+  }
+
+  @GetMapping("/client6")
+  public Object client6(){
+    ServiceInstance serviceInstance = loadBalancerClient.choose("EUREKA-PROVIDER");
+    String url = "http://"+serviceInstance.getHost()+":"+serviceInstance.getPort()+"/hi";
+    RestTemplate restTemplate = new RestTemplate();
+    return restTemplate.getForObject(url,String.class);
+  }
+
+  @GetMapping("/client7")
+  public Object client7(){
+    String url = "http://localhost:8101"+"/hi";
+    RestTemplate restTemplate = new RestTemplate();
+    return restTemplate.getForObject(url,String.class);
   }
 
 }
