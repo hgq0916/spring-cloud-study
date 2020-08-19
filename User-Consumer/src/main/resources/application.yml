@@ -1,0 +1,21 @@
+server:
+  port: 8203
+eureka:
+  client:
+    service-url:
+      #defaultZone: http://peer1:8081/eureka/,http://peer1:8082/eureka/,http://peer1:8083/eureka/
+      defaultZone: http://localhost:8080/eureka/
+  instance:
+spring:
+  application:
+    name: Eureka-Consumer
+
+#定义负载均衡策略
+provider:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+#ribbon脱离eureka使用
+#ribbon:
+#  eureka:
+#    enabled: false
+#  listOfServers: peer1:8081,peer2:8082

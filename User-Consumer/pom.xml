@@ -9,9 +9,10 @@
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <artifactId>User-Provider</artifactId>
+  <artifactId>User-Consumer</artifactId>
 
   <dependencies>
+    <!--eureka-client依赖了ribbon-->
     <dependency>
       <groupId>org.springframework.cloud</groupId>
       <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
@@ -20,15 +21,18 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
-    <!--开启应用监控-->
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-actuator</artifactId>
-    </dependency>
     <dependency>
       <groupId>com.mashibing</groupId>
       <artifactId>User-Api</artifactId>
       <version>1.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-openfeign</artifactId>
+    </dependency>
+    <dependency>
+         <groupId>io.github.openfeign</groupId>
+         <artifactId>feign-httpclient</artifactId>
     </dependency>
   </dependencies>
 

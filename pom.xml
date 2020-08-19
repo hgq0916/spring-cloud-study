@@ -11,6 +11,7 @@
     <module>Eureka-Consumer</module>
     <module>User-Provider</module>
     <module>User-Api</module>
+    <module>User-Consumer</module>
   </modules>
 
   <parent>
