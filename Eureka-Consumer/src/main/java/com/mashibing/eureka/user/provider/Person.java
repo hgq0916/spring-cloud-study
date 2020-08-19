@@ -1,8 +1,8 @@
-package com.mashibing.eureka.provider;
+package com.mashibing.eureka.user.provider;
 
 /**
  * @author gangquan.hu
- * @Package: com.mashibing.eureka.provider.Person
+ * @Package: Person
  * @Description: TODO
  * @date 2020/8/19 10:13
  */

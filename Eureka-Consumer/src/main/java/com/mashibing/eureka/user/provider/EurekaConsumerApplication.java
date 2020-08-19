@@ -1,16 +1,14 @@
-package com.mashibing.eureka.provider;
+package com.mashibing.eureka.user.provider;
 
-import com.netflix.loadbalancer.IRule;
-import com.netflix.loadbalancer.RandomRule;
-import com.netflix.loadbalancer.RoundRobinRule;
-import javax.annotation.Resource;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
+@EnableFeignClients(basePackages = "com.mashibing.eureka.provider")
 @EnableEurekaClient
 @SpringBootApplication
 public class EurekaConsumerApplication {

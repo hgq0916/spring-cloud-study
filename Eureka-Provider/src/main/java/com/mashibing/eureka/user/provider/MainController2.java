@@ -1,4 +1,4 @@
-package com.mashibing.eureka.provider;
+package com.mashibing.eureka.user.provider;
 
 import java.util.Collections;
 import java.util.Map;

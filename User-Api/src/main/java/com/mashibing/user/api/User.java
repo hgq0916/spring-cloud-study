@@ -1,4 +1,4 @@
-package com.mashibing.eureka.provider;
+package com.mashibing.user.api;
 
 /**
  * @author gangquan.hu
@@ -6,15 +6,15 @@ package com.mashibing.eureka.provider;
  * @Description: TODO
  * @date 2020/8/19 10:13
  */
-public class Person {
+public class User {
 
   private String name;
 
   private int age;
 
-  public Person(){}
+  public User(){}
 
-  public Person(String name, int age) {
+  public User(String name, int age) {
     this.name = name;
     this.age = age;
   }

@@ -1,4 +1,4 @@
-package com.mashibing.eureka.provider;
+package com.mashibing.eureka.user.provider;
 
 import java.io.IOException;
 import org.springframework.http.HttpRequest;
@@ -8,7 +8,7 @@ import org.springframework.http.client.ClientHttpResponse;
 
 /**
  * @author gangquan.hu
- * @Package: com.mashibing.eureka.provider.MyClientHttpRequestInterceptor
+ * @Package: MyClientHttpRequestInterceptor
  * @Description: TODO
  * @date 2020/8/19 10:29
  */

@@ -1,0 +1,27 @@
+server:
+  port: 8102
+eureka:
+  client:
+    #开启actuator上报真实的健康状态
+    healthcheck:
+      enabled: true
+    service-url:
+      #defaultZone: http://test:123@localhost:8080/eureka/
+      defaultZone: http://localhost:8080/eureka/
+  instance:
+    metadata-map:
+      username: zhangsan
+      age: 80
+spring:
+  application:
+    name: User-Provider
+
+#actuator输出所有的端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    shutdown:
+      enabled: true

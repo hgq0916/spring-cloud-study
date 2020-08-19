@@ -9,6 +9,8 @@
     <module>Eureka-Provider</module>
     <module>Eureka-Provider-High-Available</module>
     <module>Eureka-Consumer</module>
+    <module>User-Provider</module>
+    <module>User-Api</module>
   </modules>
 
   <parent>
