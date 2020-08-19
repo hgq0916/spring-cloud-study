@@ -3,6 +3,7 @@ package com.mashibing.eureka.provider;
 import com.netflix.loadbalancer.IRule;
 import com.netflix.loadbalancer.RandomRule;
 import com.netflix.loadbalancer.RoundRobinRule;
+import javax.annotation.Resource;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
@@ -17,7 +18,9 @@ public class EurekaConsumerApplication {
   @Bean
   @LoadBalanced//实现负载均衡
   public RestTemplate restTemplate(){
-    return new RestTemplate();
+    RestTemplate restTemplate = new RestTemplate();
+    restTemplate.getInterceptors().add(new MyClientHttpRequestInterceptor());
+    return restTemplate;
   }
 
   public static void main(String[] args) {
