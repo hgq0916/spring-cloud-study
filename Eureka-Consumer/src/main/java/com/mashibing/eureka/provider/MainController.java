@@ -3,9 +3,13 @@ package com.mashibing.eureka.provider;
 import com.netflix.appinfo.InstanceInfo;
 import com.netflix.appinfo.InstanceInfo.InstanceStatus;
 import com.netflix.discovery.EurekaClient;
+import java.io.IOException;
+import java.net.URI;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicInteger;
+import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
@@ -115,6 +119,32 @@ public class MainController {
     String url = "http://"+serviceInstance.getHost()+":"+serviceInstance.getPort()+"/hi";
     RestTemplate restTemplate = new RestTemplate();
     return restTemplate.getForObject(url,String.class);
+  }
+
+  @GetMapping("/client10")
+  public Object client10(){
+    String url = "http://EUREKA-PROVIDER"+"/getMap";
+    Map map = restTemplate.getForObject(url, Map.class);
+    return map;
+  }
+
+  @GetMapping("/client11")
+  public Object client11(){
+    String url = "http://EUREKA-PROVIDER"+"/getPersonByName?name={1}";
+    Person person = restTemplate.getForObject(url, Person.class, "hahaha");
+    return person;
+  }
+
+  @GetMapping("/client12")
+  public void client12(HttpServletResponse response){
+    String url = "http://EUREKA-PROVIDER"+"/postForLocation?name={1}";
+    URI uri = restTemplate.postForLocation(url, null,"hello");
+
+    try {
+      response.sendRedirect(uri.toURL().toString());
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
   }
 
 }

@@ -22,7 +22,7 @@ http://xxx/User/deleteById  Get
 
 ![image-20200819074006185](05 Rest API Resttemplate Feign 原生与面向接口调用.assets/image-20200819074006185.png)
 
-针对单表，不在重复crud，SpringRest，配置数据源，不用写其他代码
+针对单表，不用写重复crud，SpringRest，配置数据源，不用写其他代码
 
 写接口：yapi,swagger
 
