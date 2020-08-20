@@ -12,6 +12,7 @@
     <module>User-Provider</module>
     <module>User-Api</module>
     <module>User-Consumer</module>
+    <module>Zuul-Proxy</module>
   </modules>
 
   <parent>

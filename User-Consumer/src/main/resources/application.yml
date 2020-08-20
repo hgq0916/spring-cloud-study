@@ -8,7 +8,7 @@ eureka:
   instance:
 spring:
   application:
-    name: Eureka-Consumer
+    name: User-Consumer
 
 #定义负载均衡策略
 provider:
