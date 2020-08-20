@@ -19,3 +19,16 @@ provider:
 #  eureka:
 #    enabled: false
 #  listOfServers: peer1:8081,peer2:8082
+
+#配置ribbon的重试机制
+ribbon:
+  #连接超时时间
+  ConnectionTimeout: 1000
+  #业务处理时间（获取数据的超时时间）
+  ReadTimeout: 2000
+  #同一台实例的最大重试次数（不包含首次调用）
+  MaxAutoRetries: 1
+  #重试负载均衡其他实例的最大重试次数（不包含首次调用）
+  MaxAutoRetriesNextServers: 3
+  #是否所有操作都重试
+  OkToRetryOnAllOperations: false
