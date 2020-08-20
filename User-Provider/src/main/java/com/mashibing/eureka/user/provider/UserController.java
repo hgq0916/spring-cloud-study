@@ -20,6 +20,7 @@ public class UserController implements UserInfoApi {
 
   @Override
   public User getByName(String name) {
+    int i=1/0;
     return new User(name,30);
   }
 

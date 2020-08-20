@@ -32,3 +32,8 @@ ribbon:
   MaxAutoRetriesNextServers: 3
   #是否所有操作都重试
   OkToRetryOnAllOperations: false
+
+#feign启用hystrix
+feign:
+  hystrix:
+    enabled: true

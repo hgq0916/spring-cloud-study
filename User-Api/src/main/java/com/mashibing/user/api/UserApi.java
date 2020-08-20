@@ -10,10 +10,9 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @Description: TODO
  * @date 2020/8/19 14:59
  */
-@RequestMapping("/user")
 public interface UserApi {
 
-  @GetMapping("/getByName")
+  @GetMapping("/user/getByName")
   public User getByName(@RequestParam(name="name") String name);
 
 }

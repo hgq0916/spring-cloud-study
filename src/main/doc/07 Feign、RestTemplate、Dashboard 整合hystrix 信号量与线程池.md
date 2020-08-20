@@ -6,7 +6,7 @@
 
 3.feign配置fallbackFactory，判断异常类型，给出提示信息
 
-4.RestTemplate整合hystrix,使用@HystrixCommand注解，注解不能在controller中直接使用，启动类上需要加@EnableCircuitBreaker
+4.RestTemplate整合hystrix,使用@HystrixCommand注解，并提供fallbackMethod,注解不能在controller中直接使用，启动类上需要加@EnableCircuitBreaker或者@EnableHystrix
 
 #### restTemplate整合hsystrix
 
@@ -29,3 +29,4 @@
 整合feign fallback
 
 zuul配出来
+
