@@ -37,3 +37,18 @@ ribbon:
 feign:
   hystrix:
     enabled: true
+
+#actuator输出所有的端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+#hystrix使用信号量
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          strategy: SEMAPHORE
