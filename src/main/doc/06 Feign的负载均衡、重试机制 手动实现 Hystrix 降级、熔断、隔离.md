@@ -18,7 +18,15 @@ GetMapping,PostMapping,传map，传Person
 
 #### Hystrix原理
 
-熔断，降级，限流，隔离
+
+
+熔断：当一个uri失败次数达到阈值的时候，断路器被开启，后续请求直接返回失败的响应，过一段时间后，断路器会变成半开状态，如果下一个请求成功了，则断路器关闭，否则断路器开启
+
+降级：捕获客户端发送http请求的异常，给友好提示或者其他处理 try-catch
+
+限流：
+
+隔离：hystrix为每个请求都维护了一个线程池，当线程数达到最大线程数，后续请求直接拒绝抛异常
 
 ![image-20200820085444267](06 Feign的负载均衡、重试机制 手动实现 Hystrix 降级、熔断、隔离.assets/image-20200820085444267.png)
 
@@ -30,13 +38,7 @@ GetMapping,PostMapping,传map，传Person
 
 HystrixCommand
 
-
-
-
-
 #### Hystrix整合RestTemplate
-
-
 
 #### Hystrix整合Feign
 
