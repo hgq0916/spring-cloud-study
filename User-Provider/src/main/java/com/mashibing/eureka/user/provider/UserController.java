@@ -39,11 +39,12 @@ public class UserController implements UserInfoApi {
 
     int andIncrement = count.getAndIncrement();
     System.out.println(port+" provider 调用次数:"+andIncrement);
-    try {
+   /* try {
       TimeUnit.SECONDS.sleep(5);
     } catch (InterruptedException e) {
       e.printStackTrace();
-    }
+    }*/
+   int i = 1/0;
 
     System.out.println(ToStringBuilder.reflectionToString(user));
     user.setAge(100);
