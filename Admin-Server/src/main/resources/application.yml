@@ -10,8 +10,8 @@ spring:
   #mail配置
   mail:
     host: smtp.qq.com
-    username: 1286908118
-    password: kzzmqcxueiynjigg
+    username:
+    password:
     properties:
       mail:
         smpt:
@@ -23,5 +23,5 @@ spring:
     admin:
       notify:
         mail:
-          to: 1286908118@qq.com
-          from: 1286908118@qq.com
+          to:
+          from:
