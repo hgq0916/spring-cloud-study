@@ -26,6 +26,8 @@ zuul:
   host:
     connect-timeout-millis: 15000
     socket-timeout-millis: 60000
+    #忽略微服务
+  ignored-services: eureka-server
 
 ribbon:
   ReadTimeout: 10000
