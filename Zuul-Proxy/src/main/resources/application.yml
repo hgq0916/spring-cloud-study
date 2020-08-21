@@ -13,6 +13,13 @@ spring:
 zuul:
   routes:
     user-consumer: /apigateway/user/**
+    user-provider:
+      path: /user/provider/**
+      #写死一个url无法做负载均衡，hystrix也会失效
+      #url: http://localhost:8103
+      #使用ribbon实现负载均衡
+      ribbon:
+        listOfServers: localhost:8103,localhost:8104
     mashibing:
       path: /mashibing/**
       url: http://www.mashibing.com
