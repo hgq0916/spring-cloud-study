@@ -1,2 +1,27 @@
 server:
   port: 8401
+spring:
+  application:
+    name: admin-server
+  security:
+    user:
+      name: root
+      password: root
+  #mail配置
+  mail:
+    host: smtp.qq.com
+    username: 1286908118
+    password: kzzmqcxueiynjigg
+    properties:
+      mail:
+        smpt:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+  boot:
+    admin:
+      notify:
+        mail:
+          to: 1286908118@qq.com
+          from: 1286908118@qq.com
