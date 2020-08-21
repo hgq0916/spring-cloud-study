@@ -9,6 +9,15 @@ eureka:
 spring:
   application:
     name: User-Consumer
+  #使用zipkin收集链路数据
+  zipkin:
+    base-url: http://localhost:9411/
+    sender:
+      type: web
+  sleuth:
+    sampler:
+      rate: 1
+      probability: 1
 
 #定义负载均衡策略
 provider:
