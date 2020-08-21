@@ -9,6 +9,10 @@ spring:
       name: test
       password: 123
       roles: SUPERUSER
+  boot:
+    admin:
+      client:
+        url: http://localhost:8401
 eureka:
   client:
     #eureka server不需要向自己注册，也不需要获取注册信息
@@ -24,3 +28,12 @@ eureka:
   #关闭自我保护
   server:
     enable-self-preservation: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always

@@ -13,6 +13,7 @@
     <module>User-Api</module>
     <module>User-Consumer</module>
     <module>Zuul-Proxy</module>
+    <module>Admin-Server</module>
   </modules>
 
   <parent>
