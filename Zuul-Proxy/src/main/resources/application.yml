@@ -13,6 +13,31 @@ spring:
 zuul:
   routes:
     user-consumer: /apigateway/user/**
+    mashibing:
+      path: /mashibing/**
+      url: http://www.mashibing.com
   host:
-    connect-timeout-millis: 10000
-    socket-timeout-millis: 10000
+    connect-timeout-millis: 15000
+    socket-timeout-millis: 60000
+
+ribbon:
+  ReadTimeout: 10000
+  ConnectionTimeout: 10000
+
+#改变服务的负载均衡策略
+user-provider:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+
+#配置actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      enabled: true
+      show-details: always
+    routes:
+      enabled: true

@@ -20,7 +20,7 @@ public class UserController implements UserInfoApi {
 
   @Override
   public User getByName(String name) {
-    int i=1/0;
+    //int i=1/0;
     return new User(name,30);
   }
 
@@ -45,7 +45,7 @@ public class UserController implements UserInfoApi {
     } catch (InterruptedException e) {
       e.printStackTrace();
     }*/
-   int i = 1/0;
+   //int i = 1/0;
 
     System.out.println(ToStringBuilder.reflectionToString(user));
     user.setAge(100);
