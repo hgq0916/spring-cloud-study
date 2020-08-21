@@ -8,6 +8,12 @@ eureka:
 spring:
   application:
     name: Zuul-Proxy
+    #使用zipkin收集链路数据
+  zipkin:
+    base-url: http://localhost:9411/
+  sleuth:
+    sampler:
+      rate: 1
 
 #配置zuul路由
 zuul:
