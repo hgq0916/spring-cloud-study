@@ -14,7 +14,8 @@ zuul:
   routes:
     user-consumer: /apigateway/user/**
     user-provider:
-      path: /user/provider/**
+      path: /user/**
+      #strip-prefix: false
       #写死一个url无法做负载均衡，hystrix也会失效
       #url: http://localhost:8103
       #使用ribbon实现负载均衡
@@ -28,6 +29,8 @@ zuul:
     socket-timeout-millis: 60000
     #忽略微服务
   ignored-services: eureka-server
+  prefix: /api
+  strip-prefix: false
 
 ribbon:
   ReadTimeout: 10000

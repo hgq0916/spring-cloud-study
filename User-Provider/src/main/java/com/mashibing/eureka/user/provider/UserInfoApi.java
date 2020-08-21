@@ -15,7 +15,7 @@ public interface UserInfoApi extends UserApi {
   @PostMapping("/postMap")
   public Map postMap(@RequestParam Map<String,Object> param);
 
-  @GetMapping("/getUser")
+  @GetMapping("/api/getUser")
   public User getUser(User user);
 
 }

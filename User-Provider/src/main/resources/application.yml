@@ -1,5 +1,5 @@
 server:
-  port: 8103
+  port: 8104
 eureka:
   client:
     #开启actuator上报真实的健康状态
