@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8888
 
 spring:
   application:
@@ -9,22 +9,22 @@ spring:
       name: test
       password: 123
       roles: SUPERUSER
-  boot:
-    admin:
-      client:
-        url: http://localhost:8401
+#  boot:
+#    admin:
+#      client:
+#        url: http://localhost:8401
 eureka:
   client:
     #eureka server不需要向自己注册，也不需要获取注册信息
-    #register-with-eureka: false
-    #fetch-registry: false
+    register-with-eureka: false
+    fetch-registry: false
     service-url:
       #defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@localhost:8080/eureka/
-      defaultZone: http://localhost:8080/eureka/
+      defaultZone: http://192.168.88.129:8888/eureka/
   instance:
-    hostname: localhost
+    hostname: 192.168.88.129
     metadata-map:
-      dalao: mashibing
+      desc: ruigu
   #关闭自我保护
   server:
     enable-self-preservation: false
