@@ -4,6 +4,8 @@ Nacos、zookeeper替代
 
 #### SpringCloud 全家桶 Hoxton SR3
 
+![1650201461905](02 SpringCloud 全家桶所有组 需求拆解 HttpDns 二级域名 CDN系统.assets/1650201461905.png)
+
 ![image-20200817204858941](02 SpringCloud 全家桶所有组 需求拆解 HttpDns 二级域名 CDN系统.assets/image-20200817204858941.png)
 
 WAF:网络应用防火墙，可以过滤没意义的请求或恶意请求
@@ -55,7 +57,17 @@ webflux:基于netty；
 
 中台：自助建站系统
 
+![1650205576196](02 SpringCloud 全家桶所有组 需求拆解 HttpDns 二级域名 CDN系统.assets/1650205576196.png)
+
+![1650205609268](02 SpringCloud 全家桶所有组 需求拆解 HttpDns 二级域名 CDN系统.assets/1650205609268.png)
+
+模板引擎：推荐Eniov,性能比ThymeLeaf高
+
 #### 搭建Eurake 注册中心
+
+dubbo:
+
+![1650205482654](02 SpringCloud 全家桶所有组 需求拆解 HttpDns 二级域名 CDN系统.assets/1650205482654.png)
 
 Eurake集群：很容易出现节点信息不一致的现象
 
